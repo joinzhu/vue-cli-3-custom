@@ -6,7 +6,12 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "test:unit": "vue-cli-service test:unit",
-        "lint": "vue-cli-service lint"
+        "lint": "vue-cli-service lint",
+        "build:beta": "vue-cli-service build --mode beta",
+        "build:dev": "vue-cli-service build --mode dev",
+        "build:prod": "vue-cli-service build",
+        "build:uat": "vue-cli-service build --mode uat"
+
     },
     "dependencies": {
         "axios": "^0.19.2",
