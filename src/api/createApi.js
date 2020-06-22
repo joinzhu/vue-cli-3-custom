@@ -59,7 +59,7 @@ export const ajax = (function() {
     let res = {}
     const methods = ['get', 'post', 'put', 'del']
     methods.forEach(v => {
-        res[v] = function(url, data) {
+        res[v] = function(url, data=undefined) {
             let param = {
                 url,
                 method: v === 'del' ? 'delete' : v,
