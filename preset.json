@@ -1,14 +1,18 @@
 {
-    "userConfigFiles": true,
+    "packageManager": "npm",
+    "useConfigFiles": false,
     "cssPreprocessor": "node-sass",
     "plugins": {
         "@vue/cli-plugin-babel": {},
         "@vue/cli-plugin-eslint": {
-            "prompts": true,
-            "config": "airbnb",
-            "lintOn": ["save", "commit"]
+            "config": "prettier",
+            "lintOn": [
+                "save"
+            ]
         },
-        "@vue/cli-plugin-router": {},
+        "@vue/cli-plugin-router": {
+            "historyMode": true
+        },
         "@vue/cli-plugin-vuex": {}
     }
 }
