@@ -1,0 +1,3 @@
+NODE_ENV=production
+VUE_APP_HOST=/api
+VUE_APP_PUBLIC=//uat-static.yunlsp.com/public-head/entrance.js

@@ -1,7 +1,6 @@
 {
     "packageManager": "npm",
     "useConfigFiles": false,
-    "cssPreprocessor": "node-sass",
     "plugins": {
         "@vue/cli-plugin-babel": {},
         "@vue/cli-plugin-eslint": {

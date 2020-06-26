@@ -1,0 +1,2 @@
+VUE_APP_HOST=/api
+VUE_APP_PUBLIC=//dev-static.yunlsp.com/public-head/entrance.js

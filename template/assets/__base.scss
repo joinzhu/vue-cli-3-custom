@@ -1,0 +1,17 @@
+/**
+ * base 全局基础样式
+ *
+ * @USER
+ * @DATE create on
+ * @DESC
+ */
+body {
+    font-family: $family-list !important;
+}
+
+/* 图片格式去除 适配vw移动框架iphone图片丢失问题 */
+img {
+    border: none;
+    vertical-align: middle;
+    content: normal !important;
+}
