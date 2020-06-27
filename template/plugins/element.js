@@ -79,8 +79,7 @@ import {
     // Notification,
 } from 'element-ui'
 // fade/zoom 等
-// import 'element-ui/lib/theme-chalk/index.css'
-import './theme/index.css'
+import 'element-ui/lib/theme-chalk/index.css'
 // collapse 展开折叠
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
 

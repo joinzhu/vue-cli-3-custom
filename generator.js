@@ -1,7 +1,4 @@
 module.exports = (api, options, rootOptions) => {
-	console.log(options)
-	console.log(rootOptions)
-
 	let scripts = {
 		lint: 'vue-cli-service lint',
 		serve: 'vue-cli-service serve',
@@ -43,14 +40,14 @@ module.exports = (api, options, rootOptions) => {
 			'no-console': 'off',
 			'no-debugger': 'off',
 			'no-empty': [
-				'error',
+				'warn',
 				{
 					allowEmptyCatch: true,
 				},
 			],
 			semi: ['error', 'never'],
 			indent: [
-				'error',
+				'warn',
 				4,
 				{
 					SwitchCase: 1,
@@ -69,7 +66,7 @@ module.exports = (api, options, rootOptions) => {
 			'vue/html-self-closing': 'off',
 			'vue/html-closing-bracket-newline': 'off',
 			'comma-dangle': [
-				'error',
+				'warn',
 				{
 					arrays: 'always-multiline',
 					objects: 'always-multiline',
@@ -110,6 +107,33 @@ module.exports = (api, options, rootOptions) => {
 	if (options.uiType) {
 		api.render({
 			'./src/plugins/element.js': './template/plugins/element.js',
+		})
+		// 向入口文件添加需导入的文件，api见下的地址
+		// https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#%E6%89%A9%E5%B1%95%E5%8C%85
+		api.injectImports(api.entryFile, `import '@/plugins/element.js'`)
+	}
+
+	// 加入mixin
+	if (options.needMixin) {
+		api.render({
+			'./src/mixin/index.js': './template/mixin/index.js',
+		})
+		api.injectImports(api.entryFile, `import mixin from './mixin/index.js'`)
+		api.afterInvoke(() => {
+			let { EOL } = require('os')
+			let fs = require('fs')
+			let mainContent = fs.readFileSync(api.resolve(api.entryFile), {
+				encoding: 'utf-8',
+			})
+
+			let lines = mainContent.split(EOL)
+			let reg = /new Vue\(\{/
+			let renderIndex = lines.findIndex((line) => reg.test(line))
+			lines.splice(renderIndex - 1, 0, `Vue.mixin(mixin)`)
+
+			fs.writeFileSync(api.resolve(api.entryFile), lines.join(EOL), {
+				encoding: 'utf-8',
+			})
 		})
 	}
 }
