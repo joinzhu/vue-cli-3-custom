@@ -1,5 +1,16 @@
 ### 项目介绍
 vue-cli3 预设模板
+预装的插件及组件：
+    eslint（prettier）
+    router（history）
+    vuex
+    axios
+    dayjs
+    lodash
+    core-js
+可选的配置：
+    element-ui
+    mixin
 
 ### 创建项目命令
 vue create --preset joinzhu/vue-cli-3-custom your-project-name
