@@ -1,3 +1,9 @@
+### 项目介绍
+vue-cli3 预设模板
+
+### 创建项目命令
+vue create --preset joinzhu/vue-cli-3-custom your-project-name
+
 ### preset.json
 ```
 包含 preset 数据的主要文件（必需）
