@@ -1,5 +1,6 @@
 ### 项目介绍
 vue-cli3 预设模板
+
 预装的插件及组件：
     eslint（prettier）
     router（history）
@@ -8,6 +9,7 @@ vue-cli3 预设模板
     dayjs
     lodash
     core-js
+    
 可选的配置：
     element-ui
     mixin
